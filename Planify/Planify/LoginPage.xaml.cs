@@ -38,10 +38,7 @@ namespace Planify
             NavigationCommands.BrowseForward.InputGestures.Clear();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+      
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -99,5 +96,7 @@ namespace Planify
                 conn.Close();
             }
         }
+
+        
     }
 }

@@ -336,6 +336,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\Logo.png" />
+	  <Resource Include="assets\Saly.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
