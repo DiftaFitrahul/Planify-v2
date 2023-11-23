@@ -30,8 +30,10 @@
                     </Image.Margin>
                 </Image>
             </Grid>
+            
 
         </Border>
+        <Image Source="{StaticResource logo}" Width="60" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 30 30 0" />
         <TextBlock Foreground="White"  HorizontalAlignment="Left" Margin="507,409,0,0" TextWrapping="Wrap" Text="Top App to bost your productivity and reach best grade in exam" VerticalAlignment="Top" FontWeight="Medium" FontSize="13" Width="318" Opacity="0.7"/>
         <TextBlock Foreground="White" HorizontalAlignment="Left" Margin="507,360,0,0" TextWrapping="Wrap" Text="Sign Up to Planify" VerticalAlignment="Top" FontWeight="Bold" FontSize="33" RenderTransformOrigin="0.297,0.548" />
 

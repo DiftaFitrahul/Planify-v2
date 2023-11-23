@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using MaterialDesignThemes.Wpf;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,6 +24,7 @@ namespace Planify
         public int userId;
         public int taskId;
         public DateTime taskCreate;
+        
 
       
 
@@ -96,7 +98,11 @@ namespace Planify
 
         public void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            try
+            AddTask addTask = new AddTask();
+            addTask.userId = userId;
+            addTask.thisIsPage = this;
+            addTask.ShowDialog();
+            /*try
             {
                 conn.Open();
                 sql = @"select * from create_tasks(:_categoryname, :_userid, :_taskname, :_taskdescription, :_taskcreatedate, :_taskdeadline, :_taskisdone)";
@@ -129,7 +135,7 @@ namespace Planify
             {
                 MessageBox.Show("Error" + ex.Message, "Create Fail!!", MessageBoxButton.OK, MessageBoxImage.Error);
                 conn.Close();
-            }
+            }*/
         }
 
         private void dgTask_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
@@ -145,6 +151,8 @@ namespace Planify
 
         private void dgTask_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            /* EditTask editTaskPage = new EditTask();
+
             if (dgTask.SelectedItem != null)
                 
             {
@@ -158,8 +166,9 @@ namespace Planify
 
                     // Use the correct column names based on the output
                     // Replace "taskname" and "taskdescription" with the correct column names
-                    /*tbTitle.Text = row["TaskTitle"].ToString();*/
+                    *//*tbTitle.Text = row["TaskTitle"].ToString();*//*
                     taskId = selectedItem.TaskId;
+
                     tbTitle.Text = selectedItem.TaskTitle;
                     tbDesc.Text = selectedItem.TaskDescription;
                     datePickerDeadline.SelectedDate = selectedItem.TaskDateEnd;
@@ -176,9 +185,30 @@ namespace Planify
                         
                         rbOngoing.IsChecked = true;
                     }
+
+                    editTaskPage.taskId = selectedItem.TaskId;
+
+                    editTaskPage.tbTitle.Text = selectedItem.TaskTitle;
+                    editTaskPage.tbDesc.Text = selectedItem.TaskDescription;
+                    editTaskPage.datePickerDeadline.SelectedDate = selectedItem.TaskDateEnd;
+                    editTaskPage.taskCreate = selectedItem.TaskCreateDate;
+                  
+
+                    if (selectedItem.TaskIsDone)
+                    {
+                        editTaskPage.rbDone.IsChecked = true;
+
+                    }
+                    else
+                    {
+
+                        editTaskPage.rbOngoing.IsChecked = true;
+                    }
+
+                    editTaskPage.ShowDialog();
                     // Update other text boxes as needed for different columns
                 }
-            }
+            }*/
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -203,7 +233,68 @@ namespace Planify
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            try
+            EditTask editTaskPage = new EditTask();
+            editTaskPage.userId = userId;
+          
+            editTaskPage.thisIsPage = this;
+
+            if (dgTask.SelectedItem != null)
+
+            {
+
+                DataRowView row = dgTask.SelectedItem as DataRowView;
+                TaskLoad selectedItem = dgTask.SelectedItem as TaskLoad;
+
+                if (selectedItem != null)
+                {
+
+
+                    // Use the correct column names based on the output
+                    // Replace "taskname" and "taskdescription" with the correct column names
+                    /*tbTitle.Text = row["TaskTitle"].ToString();*/
+                    taskId = selectedItem.TaskId;
+
+                    tbTitle.Text = selectedItem.TaskTitle;
+                    tbDesc.Text = selectedItem.TaskDescription;
+                    datePickerDeadline.SelectedDate = selectedItem.TaskDateEnd;
+                    taskCreate = selectedItem.TaskCreateDate;
+                    bool isTaskDone = selectedItem.TaskIsDone;
+
+                    if (isTaskDone)
+                    {
+                        rbDone.IsChecked = true;
+
+                    }
+                    else
+                    {
+
+                        rbOngoing.IsChecked = true;
+                    }
+
+                    editTaskPage.taskId = selectedItem.TaskId;
+
+                    editTaskPage.tbTitle.Text = selectedItem.TaskTitle;
+                    editTaskPage.tbDesc.Text = selectedItem.TaskDescription;
+                    editTaskPage.datePickerDeadline.SelectedDate = selectedItem.TaskDateEnd;
+                    editTaskPage.taskCreate = selectedItem.TaskCreateDate;
+
+
+                    if (selectedItem.TaskIsDone)
+                    {
+                        editTaskPage.rbDone.IsChecked = true;
+
+                    }
+                    else
+                    {
+
+                        editTaskPage.rbOngoing.IsChecked = true;
+                    }
+
+                    editTaskPage.ShowDialog();
+                    // Update other text boxes as needed for different columns
+                }
+            }
+            /*try
             {
                 conn.Open();
                 sql = @"select * from task_update(:_taskid, :_taskname, :_taskdescription, :_taskcreatedate, :_taskdeadline, :_taskisdone)";
@@ -214,7 +305,7 @@ namespace Planify
                 cmd.Parameters.AddWithValue("_taskdescription", tbDesc.Text);
                 cmd.Parameters.Add(new NpgsqlParameter("_taskcreatedate", NpgsqlTypes.NpgsqlDbType.Date)).Value = taskCreate;
                 cmd.Parameters.Add(new NpgsqlParameter("_taskdeadline", NpgsqlTypes.NpgsqlDbType.Date)).Value = datePickerDeadline.SelectedDate;
-                if(rbDone.IsChecked == false && rbOngoing.IsChecked == false)
+                if (rbDone.IsChecked == false && rbOngoing.IsChecked == false)
                 {
                     MessageBox.Show("Silahkan mengisi status task", "Gagal update Task", MessageBoxButton.OK, MessageBoxImage.Information);
                     conn.Close();
@@ -243,7 +334,7 @@ namespace Planify
             {
                 MessageBox.Show("Error" + ex.Message, "Mengupdate task Fail!!", MessageBoxButton.OK, MessageBoxImage.Error);
                 conn.Close();
-            }
+            }*/
         }
 
         
