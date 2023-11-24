@@ -59,17 +59,20 @@ namespace Planify
                 dt = new DataTable();
                 NpgsqlDataReader rd = cmd.ExecuteReader();
                 dt.Load(rd);
-                List<TaskLoad> taskList = dt.AsEnumerable().Select(row =>
-        new TaskLoad
-        {
-            TaskId = row.Field<int>("_taskid"),
-            TaskTitle = row.Field<string>("_taskname"),
-            TaskDescription = row.Field<string>("_taskdescription"),
-            TaskCreateDate = row.Field<DateTime>("_taskcreatedate"),
-            TaskDateEnd = row.Field<DateTime>("_taskdeadline"),
-            TaskIsDone = row.Field<bool>("_taskisdone"),
-            // Map other properties accordingly
-        }).ToList();
+                List<TaskLoad> taskList = dt.AsEnumerable().Select(row => {
+                    taskId = row.Field<int>("_taskid");
+                    return new TaskLoad
+                    {
+
+                        TaskId = row.Field<int>("_taskid"),
+                        TaskTitle = row.Field<string>("_taskname"),
+                        TaskDescription = row.Field<string>("_taskdescription"),
+                        TaskCreateDate = row.Field<DateTime>("_taskcreatedate"),
+                        TaskDateEnd = row.Field<DateTime>("_taskdeadline"),
+                        TaskIsDone = row.Field<bool>("_taskisdone"),
+                        // Map other properties accordingly
+                    };
+                }).ToList();
                 /* List<Task> taskList = dt.AsEnumerable().Select(row =>
          new Task("", "", "", "", "", DateTime.Now)
          {
@@ -151,64 +154,58 @@ namespace Planify
 
         private void dgTask_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            /* EditTask editTaskPage = new EditTask();
+            SeeTask seeTask = new SeeTask();
+            
+
+
 
             if (dgTask.SelectedItem != null)
-                
+
             {
-                
-                DataRowView row = dgTask.SelectedItem as DataRowView;
+
+               
                 TaskLoad selectedItem = dgTask.SelectedItem as TaskLoad;
-                
+
                 if (selectedItem != null)
                 {
 
 
                     // Use the correct column names based on the output
                     // Replace "taskname" and "taskdescription" with the correct column names
-                    *//*tbTitle.Text = row["TaskTitle"].ToString();*//*
-                    taskId = selectedItem.TaskId;
+                    /* tbTitle.Text = row["TaskTitle"].ToString();
+                     taskId = selectedItem.TaskId;
 
-                    tbTitle.Text = selectedItem.TaskTitle;
-                    tbDesc.Text = selectedItem.TaskDescription;
-                    datePickerDeadline.SelectedDate = selectedItem.TaskDateEnd;
-                    taskCreate = selectedItem.TaskCreateDate;
-                    bool isTaskDone = selectedItem.TaskIsDone;
+                     tbTitle.Text = selectedItem.TaskTitle;
+                     tbDesc.Text = selectedItem.TaskDescription;
+                     datePickerDeadline.SelectedDate = selectedItem.TaskDateEnd;
+                     taskCreate = selectedItem.TaskCreateDate;
+                     bool isTaskDone = selectedItem.TaskIsDone;
 
-                    if (isTaskDone)
-                    {
-                        rbDone.IsChecked = true;
-                       
-                    }
-                    else
-                    {
-                        
-                        rbOngoing.IsChecked = true;
-                    }
+                     if (isTaskDone)
+                     {
+                         rbDone.IsChecked = true;
 
-                    editTaskPage.taskId = selectedItem.TaskId;
+                     }
+                     else
+                     {
 
-                    editTaskPage.tbTitle.Text = selectedItem.TaskTitle;
-                    editTaskPage.tbDesc.Text = selectedItem.TaskDescription;
-                    editTaskPage.datePickerDeadline.SelectedDate = selectedItem.TaskDateEnd;
-                    editTaskPage.taskCreate = selectedItem.TaskCreateDate;
+                         rbOngoing.IsChecked = true;
+                     }*/
+                    
                   
 
-                    if (selectedItem.TaskIsDone)
-                    {
-                        editTaskPage.rbDone.IsChecked = true;
+                    seeTask.title.Text = selectedItem.TaskTitle;
+                    seeTask.description.Text = selectedItem.TaskDescription;
+                    seeTask.deadline.Content = selectedItem.TaskDateEnd.ToString("d MMMM yyyy");
+                   
+                    IconTaskClass iconTaskClass = new IconTaskClass { IconTaskIsDone = selectedItem.TaskIsDone };
+                    seeTask.DataContext = iconTaskClass;
 
-                    }
-                    else
-                    {
 
-                        editTaskPage.rbOngoing.IsChecked = true;
-                    }
-
-                    editTaskPage.ShowDialog();
+                    seeTask.ShowDialog();
                     // Update other text boxes as needed for different columns
                 }
-            }*/
+            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

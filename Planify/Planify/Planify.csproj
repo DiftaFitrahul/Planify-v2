@@ -288,6 +288,9 @@
     <Compile Include="RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SeeTask.xaml.cs">
+      <DependentUpon>SeeTask.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Task.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Note.cs" />
@@ -312,6 +315,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RegisterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SeeTask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
