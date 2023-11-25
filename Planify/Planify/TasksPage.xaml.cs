@@ -241,7 +241,7 @@ namespace Planify
 
             {
 
-                DataRowView row = dgTask.SelectedItem as DataRowView;
+               
                 TaskLoad selectedItem = dgTask.SelectedItem as TaskLoad;
 
                 if (selectedItem != null)
@@ -256,7 +256,9 @@ namespace Planify
                     editTaskPage.taskId = selectedItem.TaskId;
 
                     editTaskPage.tbTitle.Text = selectedItem.TaskTitle;
+                    editTaskPage.tbCategory.Text = selectedItem.TaskCategory;
                     editTaskPage.tbDesc.Text = selectedItem.TaskDescription;
+
                     editTaskPage.datePickerDeadline.SelectedDate = selectedItem.TaskDateEnd;
                     editTaskPage.taskCreate = selectedItem.TaskCreateDate;
 

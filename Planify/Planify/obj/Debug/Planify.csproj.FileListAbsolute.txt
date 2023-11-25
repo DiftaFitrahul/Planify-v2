@@ -177,3 +177,7 @@ C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Debug\
 C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Debug\Planify.pdb
 C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Debug\CreateNote.g.cs
 C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Debug\CreateNote.baml
+C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Debug\EditNote.g.cs
+C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Debug\SeeNote.g.cs
+C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Debug\EditNote.baml
+C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Debug\SeeNote.baml
