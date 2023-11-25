@@ -246,6 +246,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CreateNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CreateTask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -270,6 +274,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controller.cs" />
+    <Compile Include="CreateNote.xaml.cs">
+      <DependentUpon>CreateNote.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CreateTask.xaml.cs">
       <DependentUpon>CreateTask.xaml</DependentUpon>
     </Compile>

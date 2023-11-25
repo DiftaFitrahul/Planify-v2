@@ -35,7 +35,7 @@ namespace Planify
             
             conn = new NpgsqlConnection(connstring);
             InitializeComponent();
-            datePickerDeadline.DisplayDateStart = DateTime.Now;
+            
             NavigationCommands.BrowseBack.InputGestures.Clear();
             NavigationCommands.BrowseForward.InputGestures.Clear();
 
@@ -66,6 +66,7 @@ namespace Planify
 
                         TaskId = row.Field<int>("_taskid"),
                         TaskTitle = row.Field<string>("_taskname"),
+                        TaskCategory = row.Field<string>("_categoryname"),
                         TaskDescription = row.Field<string>("_taskdescription"),
                         TaskCreateDate = row.Field<DateTime>("_taskcreatedate"),
                         TaskDateEnd = row.Field<DateTime>("_taskdeadline"),
@@ -197,6 +198,7 @@ namespace Planify
                     seeTask.title.Text = selectedItem.TaskTitle;
                     seeTask.description.Text = selectedItem.TaskDescription;
                     seeTask.deadline.Content = selectedItem.TaskDateEnd.ToString("d MMMM yyyy");
+                    seeTask.category.Content = $"Category : {selectedItem.TaskCategory}";
                    
                     IconTaskClass iconTaskClass = new IconTaskClass { IconTaskIsDone = selectedItem.TaskIsDone };
                     seeTask.DataContext = iconTaskClass;
@@ -249,24 +251,7 @@ namespace Planify
                     // Use the correct column names based on the output
                     // Replace "taskname" and "taskdescription" with the correct column names
                     /*tbTitle.Text = row["TaskTitle"].ToString();*/
-                    taskId = selectedItem.TaskId;
-
-                    tbTitle.Text = selectedItem.TaskTitle;
-                    tbDesc.Text = selectedItem.TaskDescription;
-                    datePickerDeadline.SelectedDate = selectedItem.TaskDateEnd;
-                    taskCreate = selectedItem.TaskCreateDate;
-                    bool isTaskDone = selectedItem.TaskIsDone;
-
-                    if (isTaskDone)
-                    {
-                        rbDone.IsChecked = true;
-
-                    }
-                    else
-                    {
-
-                        rbOngoing.IsChecked = true;
-                    }
+                   
 
                     editTaskPage.taskId = selectedItem.TaskId;
 
@@ -357,7 +342,9 @@ namespace Planify
 public class TaskLoad
 {
     public int TaskId { get; set; }
+   
     public string TaskTitle { get; set; }
+    public string TaskCategory { get; set; }
     public string TaskDescription{ get; set; }
     public DateTime TaskCreateDate { get; set; }
     public DateTime TaskDateEnd { get; set; }

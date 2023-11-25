@@ -16,10 +16,10 @@
         <Grid>
             <Border Height="9" VerticalAlignment="Top" Background="Teal" CornerRadius="10 10 0 0"></Border>
             <Border Height="42" VerticalAlignment="Top" Background="Teal"  Margin="0 6 0 0 " Opacity="0.1"></Border>
-            <TextBlock Margin="27,122,156,340">
+            <TextBlock Margin="27,134,233,338">
                 <StackPanel Orientation="Horizontal">
-                <Icon:PackIconMaterial Kind="ClipboardClockOutline" Width="21" Height="21" Foreground="DimGray"/>
-                <Label x:Name="deadline"  Content="2 Desember 2023" FontSize="14" Foreground="Teal" Padding="5 0 0 0" FontWeight="SemiBold" Height="28" Width="224"/>
+                <Icon:PackIconMaterial Kind="ClipboardClockOutline" Width="21" Height="21" Foreground="DimGray" RenderTransformOrigin="4.5,0.833"/>
+                <Label x:Name="deadline"  Content="2 Desember 2023" FontSize="14" Foreground="Teal" Padding="5 0 0 0" FontWeight="SemiBold" Height="77" Width="266"/>
                 
             </StackPanel>
             </TextBlock>
@@ -54,6 +54,8 @@
                     </Style>
                 </Icon:PackIconMaterial.Style>
             </Icon:PackIconMaterial>
+            <Label x:Name="category" Content="{Binding TaskCategory}" HorizontalAlignment="Left" Margin="24,108,0,0" VerticalAlignment="Top" FontSize="11" FontWeight="SemiBold" Width="290" />
+            
         </Grid>
     </Border>
 
