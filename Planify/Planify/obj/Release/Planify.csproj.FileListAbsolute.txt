@@ -181,3 +181,7 @@ C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Releas
 C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Release\SeeNote.baml
 C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Release\EditNote.g.cs
 C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Release\EditNote.baml
+C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Release\PomodorView.g.cs
+C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Release\PomodorView.baml
+C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Release\PomodoroPage.g.cs
+C:\Difta\KULIAH\Semester 5\JunPro\Day2\MyRepo\planify\Planify\Planify\obj\Release\PomodoroPage.baml

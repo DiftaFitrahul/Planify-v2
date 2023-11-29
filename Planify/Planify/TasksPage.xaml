@@ -91,7 +91,7 @@
         <Border Grid.Row="1" Background="#7e5fdc" Width="120" HorizontalAlignment="Left" CornerRadius="0 50 0 0" >
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top">
-                    <Button Style="{StaticResource taskButton}" Margin="10 40 10 10" >
+                    <Button Style="{StaticResource taskButton}" Margin="2 40 2 5" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="FileDocument" Style="{StaticResource taskButtonIcon}"/>
                             <TextBlock Text="Task"/>
@@ -102,6 +102,12 @@
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Notebook" Style="{StaticResource taskButtonIcon}"/>
                             <TextBlock Text="Note"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource taskButton}" Click="Pomodoro_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="Timer" Style="{StaticResource taskButtonIcon}"/>
+                            <TextBlock Text="Pomodoro"/>
                         </StackPanel>
                     </Button>
 

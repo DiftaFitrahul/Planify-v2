@@ -210,6 +210,13 @@ namespace Planify
             LoginPage newPage = new LoginPage();
             this.NavigationService.Navigate(newPage);
         }
+
+        private void Pomodoro_Click(object sender, RoutedEventArgs e)
+        {
+            PomodoroPage newPage = new PomodoroPage();
+            newPage.userId = userId;
+            this.NavigationService.Navigate(newPage);
+        }
     }
 }
 
